@@ -1,73 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade prática - FILA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.global.js"></script>
 </head>
 <body>
-    <section>
-        <div id="botoes_gerarsenhas">
-            <button id="btn_gerarsenha" onclick="gerar_senhaFunction()">Gerar senha</button>
-            <button type="button" id="btn_gerarsenhaespecial" onclick="gerar_filaespecialFunction()">Gerar senha especial</button>
-        </div>
-        <br>
-        Fila:
-        <div id="fila">
-        </div>
-        <br>
-        <div id="botoes_atender">
-            <button type="button" id="btn_atender" onclick="atender_filaFunction()">Atender</button>
-            <button type="button" id="btn_atenderespecial" onclick="atender_filaespecialFunction()">Atender Especial</button>
-        </div>
-    </section>
- 
-    <script>
-        let filaElemento = document.getElementById("fila");
-        let fila = [];
-        let gerar_comum = 0;  
-        let gerar_especial = 0; 
-
-        function render() {
-            filaElemento.innerHTML = '';  
-            for (let i = 0; i < fila.length; i++) {
-                filaElemento.innerHTML += " " + fila[i]; 
-            }
-        }
-        
-        // fila normal
-        function gerar_senhaFunction() {
-            gerar_comum++;
-            fila.push(gerar_comum.toString());  
-            render();
-        }
-        
-        function atender_filaFunction() {
-            for (let i = 0; i < fila.length; i++) {
-                if (!fila[i].startsWith("e")) { 
-                    fila.splice(i, 1); 
-                    break;  
-                }
-            }
-            render(); 
-        }
-
-        // fila especial
-        function gerar_filaespecialFunction() {
-            gerar_especial++;
-            fila.unshift("e" + gerar_especial);  
-            render();
-        }
-
-        function atender_filaespecialFunction() {
-            for (let i = 0; i < fila.length; i++) {
-                if (fila[i].startsWith("e")) { 
-                    fila.splice(i, 1); 
-                    break;
-                }
-            }
-            render(); 
-        }
-    </script>
+  <div id="app">
+  </div>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
